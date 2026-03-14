@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niramii Enterprises | Wholesale & Retail</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb; 
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --accent: #f59e0b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text-main); line-height: 1.6; }
+
+        /* Navbar */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1rem 5%; background: var(--card-bg);
+            position: sticky; top: 0; z-index: 1000; box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .logo { font-weight: 800; font-size: 1.4rem; color: var(--primary); }
+        .nav-links a { text-decoration: none; color: var(--text-main); margin-left: 1.5rem; font-weight: 600; font-size: 0.9rem; }
+
+        /* Credentials Bar */
+        .cred-bar {
+            background: #0f172a; color: white; font-size: 0.75rem;
+            padding: 8px 5%; display: flex; justify-content: space-between; flex-wrap: wrap;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 5rem 5%; text-align: center;
+            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+        }
+        .hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; color: #0f172a; }
+        .hero p { max-width: 700px; margin: 0 auto 2rem; color: var(--text-muted); }
+
+        /* Catalog Section */
+        .container { padding: 3rem 5%; }
+        .controls { display: flex; justify-content: center; gap: 10px; margin-bottom: 2rem; flex-wrap: wrap; }
+        .filter-btn {
+            padding: 0.5rem 1rem; border: 1px solid #e2e8f0; background: white; 
+            border-radius: 8px; cursor: pointer; font-weight: 600;
+        }
+        .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+        .grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;
+        }
+        .card {
+            background: var(--card-bg); border-radius: 12px; padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border: 1px solid #f1f5f9;
+        }
+        .category-tag { font-size: 0.7rem; font-weight: 800; color: var(--primary); text-transform: uppercase; }
+        .card h3 { margin: 0.5rem 0; font-size: 1.2rem; }
+        .card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; min-height: 50px; }
+        
+        .buy-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .btn-sm { 
+            padding: 0.6rem; border-radius: 6px; border: none;
+            cursor: pointer; font-family: inherit; font-weight: 700; font-size: 0.8rem;
+        }
+        .btn-retail { background: #ff4747; color: white; } /* Meesho-inspired Redish/Pink */
+        .btn-bulk { background: #25d366; color: white; } /* WhatsApp Green */
+
+        /* Footer */
+        footer { background: #0f172a; color: white; padding: 3rem 5%; margin-top: 4rem; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+        .footer-section h4 { margin-bottom: 1rem; color: var(--primary); }
+        .footer-section p, .footer-section a { color: #94a3b8; font-size: 0.85rem; text-decoration: none; display: block; margin-bottom: 0.5rem; }
+        .bottom-bar { border-top: 1px solid #1e293b; margin-top: 2rem; padding-top: 2rem; text-align: center; font-size: 0.8rem; color: #64748b; }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="cred-bar">
+    <span>GST: 09ECKPG6749A1ZH</span>
+    <span>FSSAI: 22725888000119</span>
+    <span>Email: niramiiofficial@gmail.com</span>
+</div>
+
+<nav>
+    <div class="logo">NIRAMII ENTERPRISES</div>
+    <div class="nav-links">
+        <a href="#catalog">Catalog</a>
+        <a href="https://www.meesho.com/MSNIRAMIIENTERPRISES" target="_blank">Meesho Store</a>
+        <a href="https://www.linkedin.com/company/niramii/" target="_blank">LinkedIn</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>Multi-Channel Quality Essentials</h1>
+    <p>Niramii Enterprises deals in a diverse range of products from tech solutions to traditional wellness. Available for retail online and wholesale offline.</p>
+    <a href="#catalog" class="btn-sm btn-retail" style="padding: 1rem 2rem; text-decoration: none; border-radius: 30px;">Browse Products</a>
+</section>
+
+<div class="container" id="catalog">
+    <div class="controls">
+        <button class="filter-btn active" onclick="filterData('all', this)">All</button>
+        <button class="filter-btn" onclick="filterData('Wellness', this)">Personal Care</button>
+        <button class="filter-btn" onclick="filterData('Kitchen', this)">Kitchen</button>
+        <button class="filter-btn" onclick="filterData('Traditional', this)">Traditional</button>
+        <button class="filter-btn" onclick="filterData('Tech', this)">Tech</button>
+    </div>
+
+    <div id="productGrid" class="grid"></div>
+</div>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-section">
+            <h4>Niramii Enterprises</h4>
+            <p>Reliable sourcing and distribution across India.</p>
+            <p>Contact: +91 8533901578</p>
+        </div>
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <a href="https://www.meesho.com/MSNIRAMIIENTERPRISES">Shop on Meesho</a>
+            <a href="https://www.linkedin.com/company/niramii/">Follow on LinkedIn</a>
+            <a href="mailto:niramiiofficial@gmail.com">Email Us</a>
+        </div>
+        <div class="footer-section">
+            <h4>Compliance</h4>
+            <p>GSTIN: 09ECKPG6749A1ZH</p>
+            <p>FSSAI: 22725888000119</p>
+        </div>
+    </div>
+    <div class="bottom-bar">
+        &copy; 2026 Niramii Enterprises | Operating from Delhi & Uttar Pradesh
+    </div>
+</footer>
+
+<script>
+    const MEESHO_LINK = "https://www.meesho.com/MSNIRAMIIENTERPRISES";
+    const WHATSAPP_NUM = "918533901578";
+
+    const products = [
+        { name: "WiFi Security Camera", cat: "Tech", desc: "Smart HD monitoring for home and office safety." },
+        { name: "Multani Mitti", cat: "Wellness", desc: "Premium natural clay for deep skin cleansing." },
+        { name: "Potash Alum (Fitkari)", cat: "Wellness", desc: "Traditional antiseptic blocks for various uses." },
+        { name: "Natural Loofahs", cat: "Wellness", desc: "Organic fibrous scrubbers for eco-friendly bathing." },
+        { name: "Pooja Hawan Samigri", cat: "Traditional", desc: "Sacred herb blend for traditional rituals." },
+        { name: "Ashwagandha Powder", cat: "Wellness", desc: "Natural root powder for wellness support." },
+        { name: "Paneer Dodi / Ke Phool", cat: "Wellness", desc: "Traditional botanical herb for health maintenance." },
+        { name: "Hibiscus Powder", cat: "Wellness", desc: "Pure flower powder for hair and skin care." },
+        { name: "Giloy Stem", cat: "Wellness", desc: "High-quality stems for immunity boosting." },
+        { name: "Kitchen Cloth Set", cat: "Kitchen", desc: "Durable, absorbent cotton cloths for daily kitchen use." },
+        { name: "Pizza Cutter", cat: "Kitchen", desc: "Stainless steel cutter for professional kitchen use." },
+        { name: "Wooden Pen & Comb", cat: "Kitchen", desc: "Handcrafted sustainable lifestyle products." }
+    ];
+
+    function filterData(category, btn) {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const filtered = category === 'all' ? products : products.filter(p => p.cat === category);
+        renderProducts(filtered);
+    }
+
+    function renderProducts(data) {
+        const grid = document.getElementById('productGrid');
+        grid.innerHTML = data.map(p => `
+            <div class="card">
+                <span class="category-tag">${p.cat}</span>
+                <h3>${p.name}</h3>
+                <p>${p.desc}</p>
+                <div class="buy-btns">
+                    <button class="btn-sm btn-retail" onclick="window.open('${MEESHO_LINK}', '_blank')">Buy Retail</button>
+                    <button class="btn-sm btn-bulk" onclick="sendWholesaleInquiry('${p.name}')">Wholesale</button>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function sendWholesaleInquiry(productName) {
+        const msg = `Hi Niramii Enterprises, I'm interested in a Wholesale/Bulk inquiry for: ${productName}. Please share your B2B price list.`;
+        window.open(`https://wa.me/${WHATSAPP_NUM}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    // Initial load
+    renderProducts(products);
+</script>
+
+</body>
+</html>
